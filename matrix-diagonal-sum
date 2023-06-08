@@ -1,16 +1,11 @@
 class Solution:
     def diagonalSum(self, mat: List[List[int]]) -> int:
-        n = len(mat)  # assuming the matrix is square
-    
-        primary_sum = 0
-        secondary_sum = 0
-
+        n = len(mat)
+        sum = 0
+        
         for i in range(n):
-            primary_sum += mat[i][i]  # add element on primary diagonal
-            secondary_sum += mat[n-1-i][i]  # add element on secondary diagonal
-
-        total = primary_sum + secondary_sum
-        if n%2==0:
-            return total
-        else:
-            return total-mat[math.floor(n/2)][math.floor(n/2)]
+            sum += mat[i][i]
+            if i != n-1-i:
+                sum += mat[i][n-1-i]
+        
+        return sum
