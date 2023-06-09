@@ -1,0 +1,16 @@
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        # Create a set to store unique values
+        unique_set = set()
+        
+        # Iterate through the array
+        for num in nums:
+            # If the current number is already in the set, return True
+            if num in unique_set:
+                return True
+            
+            # Add the current number to the set
+            unique_set.add(num)
+        
+        # If no duplicate is found, return False
+        return False
