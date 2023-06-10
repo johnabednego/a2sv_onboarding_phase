@@ -1,0 +1,11 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n, x = map(int, input().split())
+
+marks = []
+for _ in range(x):
+    marks.append(list(map(float, input().split())))
+
+averages = [sum(subject) / x for subject in zip(*marks)]
+
+for average in averages:
+    print('{:.1f}'.format(average))
