@@ -1,0 +1,21 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import OrderedDict
+
+n = int(input())
+words = []
+for _ in range(n):
+    words.append(input().rstrip())
+
+word_counts = OrderedDict()
+for word in words:
+    if word in word_counts:
+        word_counts[word] += 1
+    else:
+        word_counts[word] = 1
+
+distinct_words = list(word_counts.keys())
+num_distinct_words = len(distinct_words)
+occurrences = [word_counts[word] for word in distinct_words]
+
+print(num_distinct_words)
+print(' '.join(map(str, occurrences)))
