@@ -1,0 +1,13 @@
+class Solution:
+    def average(self, salary: List[int]) -> float:
+         # Sort the salary array in ascending order
+        salary.sort()
+
+        # Calculate the sum of salaries excluding the minimum and maximum
+        total_sum = sum(salary[1:-1])
+
+        # Calculate the average salary
+        average = total_sum / (len(salary) - 2)
+
+        return average
+        
