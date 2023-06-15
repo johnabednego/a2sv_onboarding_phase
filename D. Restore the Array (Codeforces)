@@ -1,0 +1,12 @@
+t = int(input())
+
+for _ in range(t):
+    n = int(input())
+    arr = list(map(int, input().split()))
+    ans = [0] * n
+    ans[0], ans[-1] = arr[0], arr[-1]
+    
+    for i in range(n-2):
+        ans[i + 1] = min(arr[i], arr[i+1])
+    
+    print(*ans)
