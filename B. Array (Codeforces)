@@ -1,0 +1,32 @@
+zero_set = []
+neg_set = [] 
+pos_set = []
+
+n = int(input())
+nums = map(int, input().split())
+
+for num in nums:
+    if num == 0:
+        zero_set.append(num)
+    elif num < 0:
+        neg_set.append(num)
+    elif num> 0:
+        pos_set.append(num)
+ 
+       
+if len(pos_set) == 0:
+    popped1 = neg_set.pop()
+    popped2 = neg_set.pop()
+    pos_set.append(popped1)
+    pos_set.append(popped2)
+    
+if len(neg_set) % 2 == 0:
+    popped = neg_set.pop()
+    zero_set.append(popped)
+    
+    
+    
+print(len(neg_set), *neg_set)
+print(len(pos_set), *pos_set)
+print(len(zero_set), *zero_set)
+    
