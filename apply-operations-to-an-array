@@ -1,0 +1,28 @@
+class Solution:
+    def applyOperations(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        operation_index = 0
+
+        # Apply operations sequentially
+        while operation_index < n - 1:
+            if nums[operation_index] == nums[operation_index + 1]:
+                # If the current element and the next element are equal, perform the operation
+                nums[operation_index] *= 2
+                nums[operation_index + 1] = 0
+                operation_index += 2
+            else:
+                operation_index += 1
+
+        # Shift zeros to the end
+        slow = 0
+        for fast in range(n):
+            if nums[fast] != 0:
+                nums[slow] = nums[fast]
+                slow += 1
+
+        while slow < n:
+            nums[slow] = 0
+            slow += 1
+
+        return nums
+
