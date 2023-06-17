@@ -1,0 +1,17 @@
+class Solution:
+    def findTheWinner(self, n: int, k: int) -> int:
+        circle = list(range(1, n + 1))
+        current_position = 0
+
+        while len(circle) > 1:
+            count = (current_position + k - 1) % len(circle)
+            circle.pop(count)
+            current_position = count % len(circle)
+
+        return circle[0]
+
+        # Example usage:
+        n = 5
+        k = 2
+        winner = find_winner(n, k)
+        print(winner)  # Output: 3
