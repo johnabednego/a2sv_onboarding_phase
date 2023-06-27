@@ -1,0 +1,20 @@
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        data = []
+        length = len(matrix)
+        j =0
+        while j<length:
+            array = []
+            for i in range(length):
+                array.append(matrix[i][j])
+            data.append(array)
+            j+=1
+        for i in range(len(data)):
+            matrix[i]=data[i][::-1]
+
+        
+            
+            
