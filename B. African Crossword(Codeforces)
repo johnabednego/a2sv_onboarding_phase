@@ -1,0 +1,36 @@
+def solve_african_crossword(n, m, grid):
+    crossed_out = [[False] * m for _ in range(n)]  # Keeps track of crossed out letters
+    result = ''
+
+    # Cross out repeated letters in rows
+    for i in range(n):
+        for j in range(m):
+            if not crossed_out[i][j] and grid[i].count(grid[i][j]) > 1:
+                for k in range(m):
+                    if grid[i][k] == grid[i][j]:
+                        crossed_out[i][k] = True
+
+    # Cross out repeated letters in columns
+    for j in range(m):
+        for i in range(n):
+            if not crossed_out[i][j] and sum(row[j] == grid[i][j] for row in grid) > 1:
+                for k in range(n):
+                    if grid[k][j] == grid[i][j]:
+                        crossed_out[k][j] = True
+
+    # Form the encrypted word
+    for i in range(n):
+        for j in range(m):
+            if not crossed_out[i][j]:
+                result += grid[i][j]
+
+    return result
+
+# Read input
+n, m = map(int, input().split())
+grid = []
+for _ in range(n):
+    grid.append(input())
+
+# Solve and print the encrypted word
+print(solve_african_crossword(n, m, grid))
