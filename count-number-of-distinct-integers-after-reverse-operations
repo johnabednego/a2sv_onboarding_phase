@@ -7,7 +7,7 @@ class Solution:
             dummy.append(reversed_num)
         for num in nums:
             dummy.append(num)
-        uniques_set = set()
+        unique_set = set()
         for num in dummy:
-            uniques_set.add(num)
-        return len(uniques_set)
+            unique_set.add(num)
+        return len(unique_set)
