@@ -1,0 +1,11 @@
+username = input()
+set_data = set()
+counter =0
+for s in username:
+    if s in set_data:
+        counter+=1
+    set_data.add(s)
+if (len(username)-counter)%2==0:
+    print("CHAT WITH HER!")
+else:
+    print("IGNORE HIM!")
