@@ -1,0 +1,18 @@
+n = int(input())
+ 
+array = list(map(int, input().split()))
+ 
+summation = sum(array)
+ 
+indices_array = []
+for i in range(n):
+    if array[i] == (summation - array[i]) / (n - 1):
+        indices_array.append(i + 1) 
+        
+ 
+if len(indices_array) == 0:
+    print(0)
+else:
+    print(len(indices_array))
+    print(*indices_array)
+        
