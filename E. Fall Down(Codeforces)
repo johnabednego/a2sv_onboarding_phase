@@ -1,0 +1,31 @@
+for i in range(int(input())):
+    n, m = list(map(int, input().split()))
+    array = []
+    for j in range(n):
+        array.append(list(input()))
+    indices=0
+    for column in range(m):
+        for row in range(n):
+            if array[row][column]=='*':
+                indices+=1
+                array[row][column]='.'
+            elif array[row][column]=='o':
+                for index in range(indices):
+                    row-=1
+                    array[row][column]='*'
+                indices=0
+        for index in range(indices):
+                array[row][column]='*'
+                row-=1
+                indices=0
+
+
+    for item in array:
+        item = "".join(item)
+        print(item)
+
+        
+    
+
+
+
