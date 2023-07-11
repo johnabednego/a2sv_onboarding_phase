@@ -1,0 +1,13 @@
+test_case = int(input())
+ 
+for case in range(test_case):
+    num = int(input())
+    array = list(map(int, input().split()))
+    
+    array.sort()
+    for i in range(num-1):
+        if abs(array[i+1] - array[i]) > 1:
+            print("NO")
+            break
+    else:
+        print("YES")
