@@ -1,0 +1,17 @@
+test_Case = int(input())
+for case in range(test_Case):
+    a, b, c = (map(int, input().split()))
+    results = []
+    no_movement = abs(a-b) + abs(a-c) + abs(b-c)
+    results.append(no_movement)
+    ax = [a-1, a, a+1]
+    bx = [b-1, b, b+1]
+    cx = [c-1, c, c+1]
+
+    for i in range(len(ax)):
+        for j in range(len(bx)):
+            for k in range(len(cx)):
+                current_distance = abs(ax[i] - bx[j]) + abs(ax[i] - cx[k]) + abs(bx[j] - cx[k])
+                results.append(current_distance)
+
+    print(min(results))
